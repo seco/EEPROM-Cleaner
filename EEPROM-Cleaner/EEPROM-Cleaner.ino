@@ -8,6 +8,7 @@
 
 #include <EEPROM.h>
 #include <ESP8266WiFi.h>
+#include <FS.h>
 
 // sizeBytes being the number of bytes you want to use.
 // It's defined with "#define sizeBytes"
@@ -96,6 +97,10 @@ void setup()
   Serial.println("");
   if (tok = endByte - startByte) {
     Serial.println("             EEPROM killed correctly");
+    if (SPIFFS.begin()) {
+      SPIFFS.format();
+      Serial.println("             SPIFFS killed correctly");
+    }
   } else
     Serial.println("             EEPROM not killed - ERROR !!!");
 
