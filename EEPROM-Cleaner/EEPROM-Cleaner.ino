@@ -8,6 +8,7 @@
 
 #include <EEPROM.h>
 #include <ESP8266WiFi.h>
+#include <FS.h>
 
 // sizeBytes being the number of bytes you want to use.
 // It's defined with "#define sizeBytes"
