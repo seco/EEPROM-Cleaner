@@ -96,6 +96,10 @@ void setup()
   Serial.println("");
   if (tok = endByte - startByte) {
     Serial.println("             EEPROM killed correctly");
+    if (SPIFFS.begin()) {
+      SPIFFS.format();
+      Serial.println("             SPIFFS killed correctly");
+    }
   } else
     Serial.println("             EEPROM not killed - ERROR !!!");
 
